@@ -6,6 +6,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 import Edit from '@material-ui/icons/Edit';
+import { Tooltip } from '@material-ui/core';
+
 
 const progressStyle = {
   height: '20px',
@@ -40,13 +42,19 @@ const Keg = (props) => {
   const keg = props
   const abv = parseInt(props.abv);
   const pintsRemaining = ((props.remaining / 124) * 100);
+  const pintsRemainingText = `${props.remaining} pints remaining`;
   return (
     <div>
       <Card style={cardStyle}>
-      <LinearProgress style={progressStyle}
-        variant="determinate" 
-        value={pintsRemaining}
-      />
+      <Tooltip 
+        title={pintsRemainingText}
+        placement='left'
+      >
+        <LinearProgress style={progressStyle}
+          variant='determinate' 
+          value={pintsRemaining}
+        />
+      </Tooltip>
       <CardContent>
         <div style={beerInfoHeader}>
           {keg.name}
@@ -61,12 +69,12 @@ const Keg = (props) => {
       </CardContent>
       <CardActions>
         <div style={{ flex: 1 }}>
-          <Button size="medium" variant="contained" style={buttonStyle}>Sell Pint</Button>
-          <Button size="medium" variant="contained" style={buttonStyle}>Sell Growler</Button>
-          <Button size="medium" variant="contained" style={buttonStyle}>Sell Large Growler</Button>
+          <Button size='medium' variant='contained' style={buttonStyle}>Sell Pint</Button>
+          <Button size='medium' variant='contained' style={buttonStyle}>Sell Growler</Button>
+          <Button size='medium' variant='contained' style={buttonStyle}>Sell Large Growler</Button>
         </div>
         <div>
-          <Button size="small" variant="fab" style={editButton}><Edit/></Button>
+          <Button size='small' variant='fab' style={editButton}><Edit/></Button>
         </div>
       </CardActions>
     </Card>
