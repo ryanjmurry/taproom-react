@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import LinearProgress from '@material-ui/core/LinearProgress';
 
 const progressStyle = {
-  height: '20px',
-  color: 'red'
+  height: '40px',
 }
 
 const Keg = (props) => {
@@ -13,7 +12,8 @@ const Keg = (props) => {
   const pintsRemaining = ((props.remaining / 124) * 100);
   return (
     <div>
-      <LinearProgress 
+      Pints Remaining
+      <LinearProgress style={progressStyle}
         variant="determinate" 
         value={pintsRemaining}
       />
