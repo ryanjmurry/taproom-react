@@ -13,7 +13,27 @@ const progressStyle = {
 }
 
 const cardStyle = {
-  margin: '20px'
+  margin: '20px auto',
+  width: '600px'
+}
+
+const buttonStyle = {
+  marginRight: '10px',
+  backgroundColor: 'green',
+  color: 'white'
+}
+
+const editButton = {
+  backgroundColor: 'red',
+  color: 'white'
+}
+
+const beerInfoHeader = {
+  textAlign: 'center'
+}
+
+const beerInfoDescription = {
+  textAlign: 'center'
 }
 
 const Keg = (props) => {
@@ -28,21 +48,25 @@ const Keg = (props) => {
         value={pintsRemaining}
       />
       <CardContent>
-      {keg.name}
-      {keg.brewer}
-      {keg.description}
-      {keg.abv}
-      {keg.price}
-      {keg.remaining}
+        <div style={beerInfoHeader}>
+          {keg.name}
+          {keg.brewer}
+        </div>
+        <div style={beerInfoDescription}>
+          {keg.description}
+          {keg.abv}
+          {keg.price}
+          {keg.remaining}
+        </div>
       </CardContent>
       <CardActions>
         <div style={{ flex: 1 }}>
-          <Button size="small" variant="contained" color="primary">Sell Pint</Button>
-          <Button size="small">Sell Growler</Button>
-          <Button size="small">Sell Large Growler</Button>
+          <Button size="medium" variant="contained" style={buttonStyle}>Sell Pint</Button>
+          <Button size="medium" variant="contained" style={buttonStyle}>Sell Growler</Button>
+          <Button size="medium" variant="contained" style={buttonStyle}>Sell Large Growler</Button>
         </div>
         <div>
-          <Button size="small"><Edit/></Button>
+          <Button size="small" variant="fab" style={editButton}><Edit/></Button>
         </div>
       </CardActions>
     </Card>
