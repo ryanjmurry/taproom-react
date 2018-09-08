@@ -1,9 +1,17 @@
 import React from 'react';
 import Keg from './Keg';
 
+const tapListTitle = {
+  textAlign: 'center',
+  fontSize: '80px',
+  fontFamily: 'Alegreya Sans SC',
+  marginBottom: '-10px'
+}
+
 const TapList = () => {
   return (
     <div>
+      <h1 style={tapListTitle}>Tap List</h1>
       {masterKegList.map((keg, index) => 
         <Keg 
           name={keg.name}
