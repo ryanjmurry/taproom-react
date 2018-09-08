@@ -1,45 +1,55 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import FormControl from '@material-ui/core/FormControl';
+
+const formStyle = {
+  margin: '40px 300px 40px 300px',
+  textAlign: 'center'
+}
+
+const inputStyle = {
+  marginRight: '20px',
+}
 
 const NewKegForm = () => {
-
-  const style={
-    color: 'red'
-  }
   return (
-    <div>
-      <form>
-        <TextField style={style} 
-          id="name"
-          label="name"
-          margin="normal"
+    <div style={formStyle}>
+      <FormControl style={inputStyle} margin='dense'>
+        <InputLabel>Beer Name</InputLabel>
+        <Input
+          id='name'
         />
-        <TextField style={style} 
-          id="brewer"
-          label="brewer"
-          margin="normal"
+      </FormControl>
+      <FormControl margin='dense'>
+        <InputLabel>Brewery</InputLabel>
+        <Input
+          id='brewery'
         />
-        <TextField style={style} 
-          id="description"
-          label="description"
-          margin="normal"
+      </FormControl>
+      <FormControl margin='dense'>
+        <InputLabel>Description</InputLabel>
+        <Input
+          id='description'
         />
-        <TextField style={style} 
-          id="abv"
-          label="abv"
-          margin="normal"
+      </FormControl>
+      <FormControl style={inputStyle} margin='dense'>
+        <InputLabel>ABV</InputLabel>
+        <Input
+          id="adornment-amount"
+          type="number"
+          endAdornment={<InputAdornment position="end">%</InputAdornment>}
         />
-        <TextField style={style} 
-          id="price"
-          label="price"
-          margin="normal"
+      </FormControl>
+      <FormControl margin='dense'>
+        <InputLabel>Price</InputLabel>
+        <Input
+          id="adornment-amount"
+          type="number"
+          startAdornment={<InputAdornment position="start">$</InputAdornment>}
         />
-        <TextField style={style} 
-          id="remaining"
-          label="remaining"
-          margin="normal"
-        />
-      </form>
+      </FormControl>
     </div>
   );
 }
