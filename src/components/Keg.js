@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import Edit from '@material-ui/icons/Edit';
 import { Tooltip } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
+import Lens from '@material-ui/icons/Lens';
 
 
 const progressStyle = {
@@ -36,15 +37,22 @@ const beerInfoHeader = {
 }
 
 const beerInfoDescription = {
-  textAlign: 'center'
+  textAlign: 'center',
+  fontFamily: 'Roboto',
+  fontSize: '1.25em'
 }
 
 const kegName = {
-  fontSize: '30px'
+  fontSize: '2em',
+  fontFamily: 'Alegreya Sans SC',
+  fontWeight: 'thin'
 }
 
 const kegBrewer = {
-  fontSize: '24px'
+  fontSize: '3em',
+  fontFamily: 'Alegreya Sans SC',
+  fontWeight: 'bold',
+  marginRight: '10px'
 }
 
 const kegPrice = {
@@ -75,11 +83,10 @@ const Keg = (props) => {
           <Avatar style={kegPrice}>${keg.price}</Avatar>
         </div>
         <div style={beerInfoHeader}>
-          <span style={kegName}>{keg.name}</span> <span style={kegBrewer}>by {keg.brewer}</span>
+          <span style={kegBrewer}>{keg.brewer}</span><span style={kegName}>{keg.name}</span> 
         </div>
         <div style={beerInfoDescription}>
-          {keg.description}
-          {keg.abv}
+          {keg.description} <Lens style={{height:'10px'}}/> {keg.abv}
         </div>
       </CardContent>
       <CardActions>
