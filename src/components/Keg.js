@@ -7,6 +7,7 @@ import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 import Edit from '@material-ui/icons/Edit';
 import { Tooltip } from '@material-ui/core';
+import Avatar from '@material-ui/core/Avatar';
 
 
 const progressStyle = {
@@ -16,12 +17,12 @@ const progressStyle = {
 
 const cardStyle = {
   margin: '20px auto',
-  width: '600px'
+  width: '800px'
 }
 
 const buttonStyle = {
   marginRight: '10px',
-  backgroundColor: 'green',
+  backgroundColor: 'black',
   color: 'white'
 }
 
@@ -38,15 +39,29 @@ const beerInfoDescription = {
   textAlign: 'center'
 }
 
+const kegName = {
+  fontSize: '30px'
+}
+
+const kegBrewer = {
+  fontSize: '24px'
+}
+
+const kegPrice = {
+  backgroundColor: 'green'
+}
+
+
+
 const Keg = (props) => {
-  const keg = props
+  const keg = props;
   const abv = parseInt(props.abv);
   const pintsRemaining = ((props.remaining / 124) * 100);
   const pintsRemainingText = `${props.remaining} pints remaining`;
   return (
     <div>
       <Card style={cardStyle}>
-      <Tooltip 
+      <Tooltip  
         title={pintsRemainingText}
         placement='left'
       >
@@ -56,15 +71,15 @@ const Keg = (props) => {
         />
       </Tooltip>
       <CardContent>
+        <div>
+          <Avatar style={kegPrice}>${keg.price}</Avatar>
+        </div>
         <div style={beerInfoHeader}>
-          {keg.name}
-          {keg.brewer}
+          <span style={kegName}>{keg.name}</span> <span style={kegBrewer}>by {keg.brewer}</span>
         </div>
         <div style={beerInfoDescription}>
           {keg.description}
           {keg.abv}
-          {keg.price}
-          {keg.remaining}
         </div>
       </CardContent>
       <CardActions>
